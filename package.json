@@ -1,7 +1,7 @@
 {
   "name": "rollup-plugin-stylus",
   "description": "A Rollup.js plugin to compile and load Stylus with CSS Modules",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "So What",
   "homepage": "https://github.com/bitoffog/rollup-plugin-stylus",
   "license": "MIT",

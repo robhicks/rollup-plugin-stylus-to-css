@@ -29,6 +29,7 @@ function rollupPluginStylus(options = {}) {
   const identFunction = typeof options.identName === 'function'
 
   let customObject = {}
+  let allCss = new Set()
 
   return {
     transform: async (code, id) => {
@@ -57,10 +58,14 @@ function rollupPluginStylus(options = {}) {
       const { injectableSource, exportTokens } =
         await cssModules.load(css, localIdentName, null)
 
+      allCss.add(injectableSource)
+
+      const currentCss = [...allCss].join('')
+
       if (outputFile)
-        await fs.writeFile(options.output, injectableSource)
+        await fs.writeFile(options.output, currentCss)
       else if (outputFunction)
-        await options.output(injectableSource)
+        await options.output(currentCss)
 
       return {
         id: `${id}.css`,
