@@ -36,7 +36,7 @@ function rollupPluginStylus(options = {}) {
         return null
 
       const localIdentName =
-        identFunction
+        !sourceMap && identFunction
         ? options.identName(process.cwd(), id, customObject)
         : path.relative(process.cwd(), id)
 
