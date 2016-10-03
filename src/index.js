@@ -37,7 +37,7 @@ function rollupPluginStylus(options = {}) {
 
       const localIdentName =
         identFunction
-        ? identName(process.cwd(), id, customObject)
+        ? options.identName(process.cwd(), id, customObject)
         : path.relative(process.cwd(), id)
 
       /* compile stylus syntax to css */
