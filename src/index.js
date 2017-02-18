@@ -10,7 +10,7 @@ import { createFilter } from 'rollup-pluginutils'
  * @param {Object} options
  *   @param {Array || String} include, exclude - A minimatch pattern, or an array of minimatch patterns of including ID, or excluding ID (optional)
  *   @param {Boolean} sourceMap - If true is specified, source map to be embedded in the output CSS (default is true)
- *   @param {Function} fn - A function invoked with the Stylus renderer (it will be passed to use() function of the Stylus) 
+ *   @param {Function} fn - A function invoked with the Stylus renderer (it will be passed to use() function of the Stylus)
  *   @param {Function || String} output - Output destination (optional)
  *   @param {Function} identName - names of css classes
  * @return {Object} rollup plugin with transform function
@@ -20,7 +20,7 @@ function rollupPluginStylus(options = {}) {
   const filter = createFilter(options.include, options.exclude)
   const fn = options.fn
   const sourceMap = options.sourceMap !== false
-  
+
   /* output */
   const outputFile     = typeof options.output === 'string'
   const outputFunction = typeof options.output === 'function'
@@ -48,28 +48,14 @@ function rollupPluginStylus(options = {}) {
 
       if (sourceMap)
         style.set('sourcemap', { inline: true })
-  
+
       if (fn)
         style.use(fn)
 
-      const css =
-        await style.render()
-
-      const { injectableSource, exportTokens } =
-        await cssModules.load(css, localIdentName, null)
-
-      allCss.add(injectableSource)
-
-      const currentCss = [...allCss].join('')
-
-      if (outputFile)
-        await fs.writeFile(options.output, currentCss)
-      else if (outputFunction)
-        await options.output(currentCss)
+      const css = await style.render();
 
       return {
-        id: `${id}.css`,
-        code: `export default ${JSON.stringify(exportTokens)}`,
+        code: `export default ${JSON.stringify(css.toString())}`,
         map: { mappings: '' },
       }
     },

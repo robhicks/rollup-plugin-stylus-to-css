@@ -28,22 +28,23 @@
   "jsnext:main": "lib/rollup-plugin-stylus.es.js",
   "dependencies": {
     "css-modules-loader-core": "^1.0.1",
-    "rollup-pluginutils": "^1.5.2",
+    "rollup-pluginutils": "^2.0.1",
     "stylus": "^0.54.5"
   },
   "devDependencies": {
-    "babel-plugin-transform-async-to-generator": "^6.16.0",
-    "babel-plugin-transform-runtime": "^6.15.0",
-    "babel-preset-es2015-rollup": "^1.2.0",
-    "babel-runtime": "^6.11.6",
-    "buble": "^0.14.0",
+    "babel-plugin-transform-async-to-generator": "^6.22.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "babel-runtime": "^6.23.0",
     "mocha": "^3.1.0",
-    "rollup": "^0.36.1",
-    "rollup-plugin-babel": "^2.6.1"
+    "rollup": "^0.41.4",
+    "rollup-plugin-babel": "^2.6.1",
+    "rollup-watch": "^3.2.2"
   },
   "scripts": {
     "pretest": "rollup -c",
     "test": "mocha",
+    "dev": "mocha --watch",
     "prepublish": "npm test"
   }
 }
