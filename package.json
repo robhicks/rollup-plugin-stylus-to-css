@@ -43,7 +43,6 @@
   "scripts": {
     "pretest": "rollup -c",
     "test": "mocha",
-    "dev": "mocha --watch",
-    "prepublish": "npm test"
+    "dev": "mocha --watch"
   }
 }
