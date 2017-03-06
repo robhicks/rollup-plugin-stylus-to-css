@@ -1,23 +1,22 @@
 {
-  "name": "rollup-plugin-stylus",
-  "description": "A Rollup.js plugin to compile and load Stylus with CSS Modules",
+  "name": "rollup-plugin-stylus-to-css",
+  "description": "A Rollup.js plugin to compile Stylus to css only",
   "version": "1.0.3",
   "author": "So What",
-  "homepage": "https://github.com/bitoffog/rollup-plugin-stylus",
+  "homepage": "https://github.com/robhicks/rollup-plugin-stylus-to-css",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bitoffog/rollup-plugin-stylus.git"
+    "url": "git+https://github.com/rohbicks/rollup-plugin-stylus.git"
   },
   "bugs": {
-    "url": "https://github.com/bitoffog/rollup-plugin-stylus/issues"
+    "url": "https://github.com/robhicks/rollup-plugin-stylus/issues"
   },
   "keywords": [
     "rollup",
     "rollup-plugin",
     "stylus",
-    "css",
-    "css-modules"
+    "css"
   ],
   "files": [
     "src",
