@@ -1,16 +1,16 @@
 {
   "name": "rollup-plugin-stylus-to-css",
   "description": "A Rollup.js plugin to compile Stylus to css only",
-  "version": "1.0.3",
-  "author": "So What",
+  "version": "1.0.0",
+  "author": "Rob Hicks",
   "homepage": "https://github.com/robhicks/rollup-plugin-stylus-to-css",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rohbicks/rollup-plugin-stylus.git"
+    "url": "git+https://github.com/robhicks/rollup-plugin-stylus-to-css.git"
   },
   "bugs": {
-    "url": "https://github.com/robhicks/rollup-plugin-stylus/issues"
+    "url": "https://github.com/robhicks/rollup-plugin-stylus-to-css/issues"
   },
   "keywords": [
     "rollup",
@@ -22,27 +22,20 @@
     "src",
     "lib"
   ],
-  "main": "lib/rollup-plugin-stylus.cjs.js",
-  "module": "lib/rollup-plugin-stylus.es.js",
-  "jsnext:main": "lib/rollup-plugin-stylus.es.js",
+  "main": "index.js",
+  "module": "lib/rollup-plugin-stylus.mjs",
   "dependencies": {
-    "css-modules-loader-core": "^1.0.1",
+    "css-modules-loader-core": "^1.1.0",
     "rollup-pluginutils": "^2.0.1",
     "stylus": "^0.54.5"
   },
   "devDependencies": {
-    "babel-plugin-transform-async-to-generator": "^6.22.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-es2015-rollup": "^3.0.0",
-    "babel-runtime": "^6.23.0",
-    "mocha": "^3.1.0",
-    "rollup": "^0.41.4",
-    "rollup-plugin-babel": "^2.6.1",
-    "rollup-watch": "^3.2.2"
+    "chai": "^4.1.2",
+    "live-server": "^1.2.0",
+    "mocha": "^5.1.1",
+    "mocha-headless-chrome": "^1.8.2",
+    "rollup": "^0.58.2"
   },
   "scripts": {
-    "pretest": "rollup -c",
-    "test": "mocha",
-    "dev": "mocha --watch"
   }
 }

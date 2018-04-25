@@ -1,7 +1,10 @@
-import path from 'path'
+'use strict';
 
-import compileStylus    from 'stylus'
-import { createFilter } from 'rollup-pluginutils'
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var path = _interopDefault(require('path'));
+var compileStylus = _interopDefault(require('stylus'));
+var rollupPluginutils = require('rollup-pluginutils');
 
 /**
  * rollup-plugin-stylus
@@ -12,8 +15,8 @@ import { createFilter } from 'rollup-pluginutils'
  * @return {Object} rollup plugin with transform function
  */
 function rollupPluginStylus(options = {}) {
-  const filter = createFilter(options.include, options.exclude)
-  const fn = options.fn
+  const filter = rollupPluginutils.createFilter(options.include, options.exclude);
+  const fn = options.fn;
 
   return {
     transform: async (code, id) => {
@@ -24,7 +27,7 @@ function rollupPluginStylus(options = {}) {
       /* compile stylus syntax to css */
       const style = compileStylus(code);
 
-      if (fn) style.use(fn)
+      if (fn) style.use(fn);
 
       const css = await style.render();
 
@@ -36,4 +39,4 @@ function rollupPluginStylus(options = {}) {
   }
 }
 
-export default rollupPluginStylus
+module.exports = rollupPluginStylus;

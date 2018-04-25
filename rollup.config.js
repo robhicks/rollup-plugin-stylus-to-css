@@ -1,28 +1,31 @@
-module.exports = {
-	entry: 'src/index.js',
-	plugins: [
-		require('rollup-plugin-babel')({
-			runtimeHelpers: true,
-		}),
-	],
-	external: [
-		'fs',
-		'path',
-		'stylus',
-		'rollup-pluginutils',
-		'css-modules-loader-core',
-		'babel-runtime/core-js/json/stringify',
-    'babel-runtime/helpers/asyncToGenerator',
-    'babel-runtime/regenerator',
-	],
-	targets: [
-		{
-			dest: 'lib/rollup-plugin-stylus.cjs.js',
-			format: 'cjs',
-		},
-		{
-			dest: 'lib/rollup-plugin-stylus.es.js',
-			format: 'es',
-		}
-	],
-}
+const external = [
+	'fs',
+	'path',
+	'stylus',
+	'rollup-pluginutils'
+];
+const path = require('path');
+const root = process.cwd();
+
+const input = path.resolve(root, 'src', 'index.js');
+
+export default [
+  {
+		external,
+    input,
+    plugins: [],
+    output: {
+      file: path.resolve(root, 'index.js'),
+      format: 'cjs'
+    }
+  },
+	{
+		external,
+    input,
+    plugins: [],
+    output: {
+      file: path.resolve(root, 'lib', 'rollup-plugin-stylus-to-css.mjs'),
+      format: 'es'
+    }
+  }
+];
