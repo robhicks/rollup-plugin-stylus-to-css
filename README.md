@@ -1,6 +1,6 @@
 # rollup-plugin-stylus-to-css
 
-A Rollup.js plugin to compile Stylus files to css for use in web components.  
+A Rollup.js plugin to compile Stylus files to css for use in web components. As if 1.1.0 it will work with stylus @import and @require statements. 
 
 ## Installation
 
