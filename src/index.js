@@ -24,6 +24,9 @@ function rollupPluginStylus(options = {}) {
       /* compile stylus syntax to css */
       const style = compileStylus(code);
 
+      /* help @import & @require statements with relative paths */
+      style.set('paths', [ path.dirname(id), __dirname ]);
+
       if (fn) style.use(fn)
 
       const css = await style.render();
