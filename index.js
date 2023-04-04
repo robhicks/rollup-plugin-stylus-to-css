@@ -17,6 +17,7 @@ var rollupPluginutils = require('rollup-pluginutils');
 function rollupPluginStylus(options = {}) {
   const filter = rollupPluginutils.createFilter(options.include, options.exclude);
   const fn = options.fn;
+  const stylusConfig = options.stylusConfig;
 
   return {
     transform: async (code, id) => {
@@ -25,10 +26,12 @@ function rollupPluginStylus(options = {}) {
       // console.log("code", code)
 
       /* compile stylus syntax to css */
-      const style = compileStylus(code);
+      const style = compileStylus(code, stylusConfig);
 
       /* help @import & @require statements with relative paths */
-      style.set('paths', [ path.dirname(id), __dirname ]);
+      const paths = stylusConfig?.paths ?? [];
+      paths.push(path.dirname(id), __dirname);
+      style.set('paths', paths);
 
       if (fn) style.use(fn);
 
